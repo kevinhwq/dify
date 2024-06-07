@@ -60,6 +60,9 @@ class ToolEngine:
                 tool_inputs=tool_parameters
             )
 
+            # Modify by kevinhwq
+            tool.runtime.runtime_parameters.update(message.inputs)
+
             meta, response = ToolEngine._invoke(tool, tool_parameters, user_id)
             response = ToolFileMessageTransformer.transform_tool_invoke_messages(
                 messages=response, 

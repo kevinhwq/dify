@@ -243,8 +243,9 @@ class BaseAgentRunner(AppRunner):
         for tool in self.app_config.agent.tools if self.app_config.agent else []:
             try:
                 prompt_tool, tool_entity = self._convert_tool_to_prompt_message_tool(tool)
-            except Exception:
+            except Exception as e:
                 # api tool may be deleted
+                print(f"init tool exception {e}")
                 continue
             # save tool entity
             tool_instances[tool.tool_name] = tool_entity

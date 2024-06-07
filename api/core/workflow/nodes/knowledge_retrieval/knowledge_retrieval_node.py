@@ -39,6 +39,18 @@ class KnowledgeRetrievalNode(BaseNode):
     def _run(self, variable_pool: VariablePool) -> NodeRunResult:
         node_data: KnowledgeRetrievalNodeData = cast(self._node_data_cls, self.node_data)
 
+        # modified by kevinhwq
+        dataset_name = variable_pool.user_inputs['dataset_name']
+        if dataset_name:
+            dataset = Dataset.query.filter_by(name=dataset_name).first()
+            if not dataset:
+                return NodeRunResult(
+                    status=WorkflowNodeExecutionStatus.FAILED,
+                    error=f"Dataset {dataset_name} not found."
+                )
+            # set dataset
+            node_data.dataset_ids.append(dataset.id)
+
         # extract variables
         query = variable_pool.get_variable_value(variable_selector=node_data.query_variable_selector)
         variables = {
