@@ -1,0 +1,46 @@
+identity:
+  name: contacts_save
+  author: Kevin Huang
+  label:
+    en_US: Contacts operation
+    zh_Hans: 联系人保存（新增或更新）
+  icon: icon.png
+description:
+  human:
+    en_US: Sending a group message on Feishu via the webhook of group bot
+    zh_Hans: |
+      保存（新增或更新）联系人信息时使用，参数采用json字符串定义联系人对象。
+      联系人对象中包含姓名name，手机号phone，电子邮件地址email，生日birthday，备注meno，地址addr，公司company，学校school，助记码code，id，创建时间createTime，更新时间updateTime
+  llm: A tool for save or update the contacts information
+parameters:
+  - name: app_token
+    type: string
+    required: true
+    label:
+      en_US: JWT Token
+      zh_Hans: JWT Token
+    human_description:
+      en_US: JWT Token
+      zh_Hans: JWT Token
+    form: form
+  - name: tenant_id
+    type: string
+    required: true
+    label:
+      en_US: Tenant ID
+      zh_Hans: 租户ID
+    human_description:
+      en_US: Tenant ID
+      zh_Hans: 租户ID
+    form: form
+  - name: content
+    type: string
+    required: true
+    label:
+      en_US: content
+      zh_Hans: 内容
+    human_description:
+      en_US: content from user
+      zh_Hans: 消息文本
+    llm_description: content of the message
+    form: llm

@@ -1,0 +1,11 @@
+identity:
+  author: HeruiTech
+  name: aiasst
+  label:
+    en_US: AIAsst
+    zh_Hans: 小理事
+  description:
+    en_US: AIAsst
+    zh_Hans: 小理事
+  icon: icon.png
+credentials_for_provider:
