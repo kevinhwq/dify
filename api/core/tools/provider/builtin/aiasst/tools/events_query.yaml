@@ -1,18 +1,18 @@
 identity:
-  name: contacts_query
+  name: events_query
   author: Kevin
   label:
     en_US: Contacts Query
-    zh_Hans: 联系人信息查询
+    zh_Hans: 待办事项查询
   icon: icon.png
 description:
   human:
     en_US: Sending a group message on Feishu via the webhook of group bot
     zh_Hans: |
-      查询联系人详细信息时使用。
-      接口参数是json字符串，json中的按照联系人对象定义。
-      返回json字符串，json中的data是联系人集合。
-      联系人对象中包含姓名name，手机号phone，电子邮件地址email，生日birthday，备注meno，地址addr，公司company，学校school，助记码code，id，创建时间createTime，更新时间updateTime
+      查询待办事项、日程信息时使用。
+      接口参数是json字符串，json中的按照待办事项对象定义。
+      返回json字符串，json中的data是待办事项的集合。
+      待办事项对象中包含标题title，描述description，标签tags
   llm: |
     A tool for getting the contacts information, 
     the contacts object include name, phone, email, birthday, meno, addr, company, school, code, id, createTime, updateTime etc.
@@ -27,7 +27,7 @@ parameters:
     human_description:
       en_US: JWT Token
       zh_Hans: JWT Token
-    form: llm
+    form: form
   - name: app_tenant_id
     type: string
     required: true
@@ -37,7 +37,7 @@ parameters:
     human_description:
       en_US: Tenant ID
       zh_Hans: 租户ID
-    form: llm
+    form: form
   - name: content
     type: string
     required: true

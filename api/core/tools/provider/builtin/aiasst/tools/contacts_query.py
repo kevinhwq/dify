@@ -14,4 +14,4 @@ class AsstContactsQueryTool(BuiltinTool):
             invoke tools
         """
         api_url = '/ai/chat/contacts/query'
-        return asst_utils.invokeApi(api_url, tool_parameters)
+        return asst_utils.invoke_api(api_url, tool_parameters)

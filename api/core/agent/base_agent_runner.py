@@ -245,6 +245,7 @@ class BaseAgentRunner(AppRunner):
                 prompt_tool, tool_entity = self._convert_tool_to_prompt_message_tool(tool)
             except Exception as e:
                 # api tool may be deleted
+                # kevinhwq 20240608
                 print(f"init tool exception {e}")
                 continue
             # save tool entity
